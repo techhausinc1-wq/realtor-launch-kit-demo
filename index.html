@@ -35,6 +35,11 @@
   .team-avatar { width: 28px; height: 28px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; border: 2px solid var(--bg-2); }
   .team-avatar.a { background: var(--navy); }
   .team-avatar.b { background: var(--gold); margin-left: -8px; }
+  .header-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .lang-switcher { display: inline-flex; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--bg-2); }
+  .lang-btn { padding: 6px 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.2px; color: var(--text-mute); cursor: pointer; transition: all 120ms; background: transparent; border: 0; }
+  .lang-btn:hover { color: var(--ink); }
+  .lang-btn.active { background: var(--navy); color: white; }
 
   .layout { display: grid; grid-template-columns: 240px 1fr; flex: 1; min-height: 0; }
   @media (max-width: 900px) {
@@ -179,16 +184,23 @@
   <div class="brand">
     <div class="brand-mark">R</div>
     <div>
-      <div class="brand-name">New Realtor Launch Kit</div>
-      <div class="brand-sub">From zero clients → first deal in 90 days · family-team edition</div>
+      <div class="brand-name" data-i18n="brand.name">New Realtor Launch Kit</div>
+      <div class="brand-sub" data-i18n="brand.subtitle">From zero clients → first deal in 90 days · family-team edition</div>
     </div>
   </div>
-  <div class="team-switcher">
-    <div class="team-avatars">
-      <div class="team-avatar a">A</div>
-      <div class="team-avatar b">B</div>
+  <div class="header-tools">
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ru">РУ</button>
+      <button class="lang-btn" data-lang="uk">УКР</button>
     </div>
-    <span>Team · 2 agents</span>
+    <div class="team-switcher">
+      <div class="team-avatars">
+        <div class="team-avatar a">A</div>
+        <div class="team-avatar b">B</div>
+      </div>
+      <span data-i18n="team.label">Team · 2 agents</span>
+    </div>
   </div>
 </header>
 
@@ -196,35 +208,35 @@
 
   <aside class="sidebar">
     <div class="nav-section">
-      <div class="nav-label">Daily Habit</div>
-      <div class="nav-item active" data-view="dashboard">Today's Dashboard</div>
-      <div class="nav-item" data-view="prospecting">Today's Prospecting <span class="nav-badge urgent">7</span></div>
+      <div class="nav-label" data-i18n="nav.label.dailyHabit">Daily Habit</div>
+      <div class="nav-item active" data-view="dashboard"><span data-i18n="nav.dashboard">Today's Dashboard</span></div>
+      <div class="nav-item" data-view="prospecting"><span data-i18n="nav.prospecting">Today's Prospecting</span> <span class="nav-badge urgent">7</span></div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">Pipeline</div>
-      <div class="nav-item" data-view="sphere">Sphere of Influence</div>
-      <div class="nav-item" data-view="leads">Lead Pipeline</div>
-      <div class="nav-item" data-view="appointments">Appointments</div>
+      <div class="nav-label" data-i18n="nav.label.pipeline">Pipeline</div>
+      <div class="nav-item" data-view="sphere"><span data-i18n="nav.sphere">Sphere of Influence</span></div>
+      <div class="nav-item" data-view="leads"><span data-i18n="nav.leads">Lead Pipeline</span></div>
+      <div class="nav-item" data-view="appointments"><span data-i18n="nav.appointments">Appointments</span></div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">Marketing</div>
-      <div class="nav-item" data-view="brand">Personal Brand</div>
-      <div class="nav-item" data-view="social">Social Engine <span class="nav-badge">14</span></div>
-      <div class="nav-item" data-view="groups">FB Groups Engine <span class="nav-badge urgent">9</span></div>
-      <div class="nav-item" data-view="collateral">Collateral + Templates</div>
-      <div class="nav-item" data-view="ads">Lead Ads</div>
-      <div class="nav-item" data-view="open-houses">Open Houses</div>
+      <div class="nav-label" data-i18n="nav.label.marketing">Marketing</div>
+      <div class="nav-item" data-view="brand"><span data-i18n="nav.brand">Personal Brand</span></div>
+      <div class="nav-item" data-view="social"><span data-i18n="nav.social">Social Engine</span> <span class="nav-badge">14</span></div>
+      <div class="nav-item" data-view="groups"><span data-i18n="nav.groups">FB Groups Engine</span> <span class="nav-badge urgent">9</span></div>
+      <div class="nav-item" data-view="collateral"><span data-i18n="nav.collateral">Collateral + Templates</span></div>
+      <div class="nav-item" data-view="ads"><span data-i18n="nav.ads">Lead Ads</span></div>
+      <div class="nav-item" data-view="open-houses"><span data-i18n="nav.openHouses">Open Houses</span></div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">Knowledge</div>
-      <div class="nav-item" data-view="market">Market Data</div>
-      <div class="nav-item" data-view="scripts">Scripts + Templates</div>
-      <div class="nav-item" data-view="ce">CE + Licensing</div>
+      <div class="nav-label" data-i18n="nav.label.knowledge">Knowledge</div>
+      <div class="nav-item" data-view="market"><span data-i18n="nav.market">Market Data</span></div>
+      <div class="nav-item" data-view="scripts"><span data-i18n="nav.scripts">Scripts + Templates</span></div>
+      <div class="nav-item" data-view="ce"><span data-i18n="nav.ce">CE + Licensing</span></div>
     </div>
     <div class="nav-section">
-      <div class="nav-label">Team</div>
-      <div class="nav-item" data-view="team">Team Split + Routing</div>
-      <div class="nav-item" data-view="reports">Reports</div>
+      <div class="nav-label" data-i18n="nav.label.team">Team</div>
+      <div class="nav-item" data-view="team"><span data-i18n="nav.team">Team Split + Routing</span></div>
+      <div class="nav-item" data-view="reports"><span data-i18n="nav.reports">Reports</span></div>
     </div>
   </aside>
 
@@ -233,56 +245,56 @@
     <div class="view active" id="view-dashboard">
       <div class="page-header">
         <div>
-          <div class="page-subtitle">Saturday · June 7, 2026 · Day 23 of first 90 · On pace</div>
-          <div class="page-title">Welcome back</div>
+          <div class="page-subtitle" data-i18n="dashboard.subtitle">Saturday · June 7, 2026 · Day 23 of first 90 · On pace</div>
+          <div class="page-title" data-i18n="dashboard.title">Welcome back</div>
         </div>
         <div class="page-actions">
-          <button class="btn ghost">Open today's list</button>
-          <button class="btn primary">+ Log conversation</button>
+          <button class="btn ghost" data-i18n="dashboard.actionList">Open today's list</button>
+          <button class="btn primary" data-i18n="dashboard.actionLog">+ Log conversation</button>
         </div>
       </div>
 
       <div class="panel habit-card">
         <div class="panel-header">
-          <div class="panel-title">The 10-3-1 daily habit · the only thing that matters</div>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); text-transform: uppercase;">Day 23 streak</span>
+          <div class="panel-title" data-i18n="habit.title">The 10-3-1 daily habit · the only thing that matters</div>
+          <span data-i18n="habit.streak" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); text-transform: uppercase;">Day 23 streak</span>
         </div>
-        <div class="habit-formula">10 <em>contacts</em> · 3 <em>conversations</em> · 1 <em>appointment</em></div>
-        <p class="habit-desc">Every day. Doesn't matter what kind — a text to your sphere, a call to a past customer, a door knock, an open house follow-up. Just do the 10-3-1. After 90 days of this, you have deals. Skip three days and you're starting over.</p>
+        <div class="habit-formula">10 <em data-i18n="habit.contacts">contacts</em> · 3 <em data-i18n="habit.conversations">conversations</em> · 1 <em data-i18n="habit.appointment">appointment</em></div>
+        <p class="habit-desc" data-i18n="habit.desc">Every day. Doesn't matter what kind — a text to your sphere, a call to a past customer, a door knock, an open house follow-up. Just do the 10-3-1. After 90 days of this, you have deals. Skip three days and you're starting over.</p>
         <div class="habit-row">
           <div class="habit-block">
             <div class="habit-num">8<small> / 10</small></div>
-            <div class="habit-label">Contacts today</div>
+            <div class="habit-label" data-i18n="habit.label.contacts">Contacts today</div>
             <div class="habit-prog"><div class="habit-prog-fill" style="width: 80%;"></div></div>
           </div>
           <div class="habit-block">
             <div class="habit-num">3<small> / 3</small></div>
-            <div class="habit-label">Real conversations</div>
+            <div class="habit-label" data-i18n="habit.label.conversations">Real conversations</div>
             <div class="habit-prog"><div class="habit-prog-fill" style="width: 100%;"></div></div>
           </div>
           <div class="habit-block">
             <div class="habit-num">1<small> / 1</small></div>
-            <div class="habit-label">Appointment booked</div>
+            <div class="habit-label" data-i18n="habit.label.appointment">Appointment booked</div>
             <div class="habit-prog"><div class="habit-prog-fill" style="width: 100%;"></div></div>
           </div>
         </div>
       </div>
 
       <div class="stat-grid">
-        <div class="stat"><div class="stat-label">Sphere Built</div><div class="stat-value">184</div><div class="stat-delta">+8 this week · target 200</div></div>
-        <div class="stat"><div class="stat-label">Active Leads</div><div class="stat-value">14</div><div class="stat-delta">4 buyers · 1 listing · 9 nurture</div></div>
-        <div class="stat"><div class="stat-label">Appointments</div><div class="stat-value">5</div><div class="stat-delta">Next 14 days</div></div>
-        <div class="stat"><div class="stat-label">Days Streak</div><div class="stat-value">23</div><div class="stat-delta">Don't break it</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="stat.sphere">Sphere Built</div><div class="stat-value">184</div><div class="stat-delta" data-i18n="stat.sphere.delta">+8 this week · target 200</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="stat.activeLeads">Active Leads</div><div class="stat-value">14</div><div class="stat-delta" data-i18n="stat.activeLeads.delta">4 buyers · 1 listing · 9 nurture</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="stat.appts">Appointments</div><div class="stat-value">5</div><div class="stat-delta" data-i18n="stat.appts.delta">Next 14 days</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="stat.streak">Days Streak</div><div class="stat-value">23</div><div class="stat-delta" data-i18n="stat.streak.delta">Don't break it</div></div>
       </div>
 
       <div class="grid-2">
         <div>
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">Today's prospecting — 10 contacts</div>
-              <a class="panel-link" onclick="navigate('prospecting')">Full list</a>
+              <div class="panel-title" data-i18n="dashboard.prospecting.title">Today's prospecting — 10 contacts</div>
+              <a class="panel-link" onclick="navigate('prospecting')" data-i18n="link.fullList">Full list</a>
             </div>
-            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Auto-generated each morning from sphere + active leads + farming neighborhood. Each contact has a suggested script.</p>
+            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;" data-i18n="dashboard.prospecting.desc">Auto-generated each morning from sphere + active leads + farming neighborhood. Each contact has a suggested script.</p>
 
             <div class="prospect-row">
               <div class="prospect-checkbox done">✓</div>
@@ -344,24 +356,24 @@
 
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">Active leads — 14 in pipeline</div>
-              <a class="panel-link" onclick="navigate('leads')">All leads</a>
+              <div class="panel-title" data-i18n="dashboard.leads.title">Active leads — 14 in pipeline</div>
+              <a class="panel-link" onclick="navigate('leads')" data-i18n="link.allLeads">All leads</a>
             </div>
             <div class="pipeline">
-              <div class="pipe-col active"><div class="pipe-name">New (today-3d)</div><div class="pipe-count">3</div><div class="pipe-names">FB ad inquiries · cold</div></div>
-              <div class="pipe-col active"><div class="pipe-name">Nurture</div><div class="pipe-count">5</div><div class="pipe-names">Sphere convos · long-tail</div></div>
-              <div class="pipe-col active"><div class="pipe-name">Qualified</div><div class="pipe-count">3</div><div class="pipe-names">Pre-approved buyers</div></div>
-              <div class="pipe-col"><div class="pipe-name">Touring</div><div class="pipe-count">2</div><div class="pipe-names">Active buyers</div></div>
-              <div class="pipe-col"><div class="pipe-name">Offer</div><div class="pipe-count">0</div><div class="pipe-names">—</div></div>
-              <div class="pipe-col"><div class="pipe-name">Closed</div><div class="pipe-count">1</div><div class="pipe-names">In escrow · Jul 12</div></div>
+              <div class="pipe-col active"><div class="pipe-name" data-i18n="pipe.new">New (today-3d)</div><div class="pipe-count">3</div><div class="pipe-names">FB ad inquiries · cold</div></div>
+              <div class="pipe-col active"><div class="pipe-name" data-i18n="pipe.nurture">Nurture</div><div class="pipe-count">5</div><div class="pipe-names">Sphere convos · long-tail</div></div>
+              <div class="pipe-col active"><div class="pipe-name" data-i18n="pipe.qualified">Qualified</div><div class="pipe-count">3</div><div class="pipe-names">Pre-approved buyers</div></div>
+              <div class="pipe-col"><div class="pipe-name" data-i18n="pipe.touring">Touring</div><div class="pipe-count">2</div><div class="pipe-names">Active buyers</div></div>
+              <div class="pipe-col"><div class="pipe-name" data-i18n="pipe.offer">Offer</div><div class="pipe-count">0</div><div class="pipe-names">—</div></div>
+              <div class="pipe-col"><div class="pipe-name" data-i18n="pipe.closed">Closed</div><div class="pipe-count">1</div><div class="pipe-names">In escrow · Jul 12</div></div>
             </div>
-            <p style="font-size: 11.5px; color: var(--text-dim); margin-top: 6px;">First deal scheduled to close July 12 ($485K · estimated GCI: $7,275 to team).</p>
+            <p style="font-size: 11.5px; color: var(--text-dim); margin-top: 6px;" data-i18n="dashboard.leads.note">First deal scheduled to close July 12 ($485K · estimated GCI: $7,275 to team).</p>
           </div>
         </div>
 
         <div>
           <div class="panel">
-            <div class="panel-header"><div class="panel-title">This week ahead</div></div>
+            <div class="panel-header"><div class="panel-title" data-i18n="dashboard.week.title">This week ahead</div></div>
             <div class="activity-item"><div class="activity-icon">📅</div><div class="activity-text"><div><strong>Tue 11 AM · Listing presentation</strong></div><div class="activity-time">42 MAPLE DR · MENTOR-REFERRED</div></div></div>
             <div class="activity-item"><div class="activity-icon">📅</div><div class="activity-text"><div><strong>Wed 2 PM · Buyer tour (4 homes)</strong></div><div class="activity-time">LAWRENCEVILLE</div></div></div>
             <div class="activity-item"><div class="activity-icon">📅</div><div class="activity-text"><div><strong>Thu 10 AM · Open house prep</strong></div><div class="activity-time">AGENT B HOSTING 8 SUNSET BLVD</div></div></div>
@@ -370,28 +382,28 @@
           </div>
 
           <div class="panel">
-            <div class="panel-header"><div class="panel-title">First-deal progress</div></div>
-            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Most new agents close their first deal at day 60-90. You're ahead.</p>
+            <div class="panel-header"><div class="panel-title" data-i18n="dashboard.firstDeal.title">First-deal progress</div></div>
+            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;" data-i18n="dashboard.firstDeal.desc">Most new agents close their first deal at day 60-90. You're ahead.</p>
             <div style="position: relative; height: 8px; background: var(--bg-3); border-radius: 4px; margin-bottom: 14px;">
               <div style="position: absolute; left: 0; top: 0; height: 8px; width: 26%; background: var(--gold); border-radius: 4px;"></div>
               <div style="position: absolute; left: 26%; top: -4px; width: 2px; height: 16px; background: var(--navy);"></div>
             </div>
             <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-mute);">
-              <span>DAY 0</span>
-              <span style="color: var(--gold);">DAY 23 · YOU</span>
-              <span>DAY 90 · TARGET</span>
+              <span data-i18n="dashboard.firstDeal.day0">DAY 0</span>
+              <span style="color: var(--gold);" data-i18n="dashboard.firstDeal.day23">DAY 23 · YOU</span>
+              <span data-i18n="dashboard.firstDeal.day90">DAY 90 · TARGET</span>
             </div>
-            <p style="font-size: 12px; color: var(--text-dim); margin-top: 14px; line-height: 1.5;">First deal in escrow already. Goal: 3 closings + 2 active listings by day 90.</p>
+            <p style="font-size: 12px; color: var(--text-dim); margin-top: 14px; line-height: 1.5;" data-i18n="dashboard.firstDeal.note">First deal in escrow already. Goal: 3 closings + 2 active listings by day 90.</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="view" id="view-prospecting">
-      <div class="page-header"><div><div class="page-subtitle">Today's 10 contacts · 3 done · 7 remaining</div><div class="page-title">Today's Prospecting</div></div><div class="page-actions"><button class="btn ghost">Refresh list</button><button class="btn primary">+ Add to today</button></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="prospecting.subtitle">Today's 10 contacts · 3 done · 7 remaining</div><div class="page-title" data-i18n="prospecting.title">Today's Prospecting</div></div><div class="page-actions"><button class="btn ghost" data-i18n="prospecting.action.refresh">Refresh list</button><button class="btn primary" data-i18n="prospecting.action.add">+ Add to today</button></div></div>
       <div class="panel">
-        <div class="panel-header"><div class="panel-title">Auto-generated list — based on cadence + warmth + signals</div></div>
-        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 18px;">The system prioritizes: (1) SOI contacts overdue based on tier cadence, (2) recent leads that need follow-up, (3) one farm-neighborhood activity per day, (4) anyone who mentioned a life event in past 6 months.</p>
+        <div class="panel-header"><div class="panel-title" data-i18n="prospecting.panel.title">Auto-generated list — based on cadence + warmth + signals</div></div>
+        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 18px;" data-i18n="prospecting.panel.desc">The system prioritizes: (1) SOI contacts overdue based on tier cadence, (2) recent leads that need follow-up, (3) one farm-neighborhood activity per day, (4) anyone who mentioned a life event in past 6 months.</p>
 
         <div class="prospect-row"><div class="prospect-checkbox done">✓</div><div class="prospect-body"><div class="prospect-name">Cousin · family Tier 1 — done at 8:42 AM</div><div class="prospect-meta">"asked about apartment search · open to talking again in 2 months"</div></div></div>
         <div class="prospect-row"><div class="prospect-checkbox done">✓</div><div class="prospect-body"><div class="prospect-name">Church friend — done at 9:15 AM</div><div class="prospect-meta">"interested in Princeton 4bd · husband not ready · 3-month nurture queue"</div></div></div>
@@ -407,13 +419,13 @@
     </div>
 
     <div class="view" id="view-sphere">
-      <div class="page-header"><div><div class="page-subtitle">184 contacts · 16 to add to hit 200 target · 4 tiers by relationship warmth</div><div class="page-title">Sphere of Influence</div></div><div class="page-actions"><button class="btn ghost">Import from phone</button><button class="btn primary">+ Add contact</button></div></div>
-      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px;">Your sphere is the single highest-ROI source of business as a new agent. 85% of first-year agents who closed 6+ deals worked their sphere systematically. The Launch Kit assigns each contact a tier and a cadence — you just follow the daily list.</p>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="sphere.subtitle">184 contacts · 16 to add to hit 200 target · 4 tiers by relationship warmth</div><div class="page-title" data-i18n="sphere.title">Sphere of Influence</div></div><div class="page-actions"><button class="btn ghost" data-i18n="sphere.action.import">Import from phone</button><button class="btn primary" data-i18n="sphere.action.add">+ Add contact</button></div></div>
+      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px;" data-i18n="sphere.intro">Your sphere is the single highest-ROI source of business as a new agent. 85% of first-year agents who closed 6+ deals worked their sphere systematically. The Launch Kit assigns each contact a tier and a cadence — you just follow the daily list.</p>
       <div class="soi-tier">
-        <div class="tier-card t1"><div class="tier-num">38</div><div class="tier-name">Tier 1 · Inner Circle</div><div class="tier-desc">Family, closest friends, business partners. People who'd already help you with anything.</div><div class="tier-cadence">Cadence: every 30 days · personal call/text</div></div>
-        <div class="tier-card t2"><div class="tier-num">52</div><div class="tier-name">Tier 2 · Active Network</div><div class="tier-desc">Past coworkers, church/temple, parents from kids' school, gym friends. People who know you well.</div><div class="tier-cadence">Cadence: every 60 days · text/email</div></div>
-        <div class="tier-card t3"><div class="tier-num">68</div><div class="tier-name">Tier 3 · Acquaintances</div><div class="tier-desc">People you've met more than once. LinkedIn connections, neighbors, casual contacts.</div><div class="tier-cadence">Cadence: every 90 days · email/newsletter</div></div>
-        <div class="tier-card t4"><div class="tier-num">26</div><div class="tier-name">Tier 4 · Past Clients</div><div class="tier-desc">Anyone you (or your co-agent) helped buy or sell. Annual touch + life-event triggers.</div><div class="tier-cadence">Cadence: quarterly market update + birthdays</div></div>
+        <div class="tier-card t1"><div class="tier-num">38</div><div class="tier-name" data-i18n="sphere.t1.name">Tier 1 · Inner Circle</div><div class="tier-desc" data-i18n="sphere.t1.desc">Family, closest friends, business partners. People who'd already help you with anything.</div><div class="tier-cadence" data-i18n="sphere.t1.cadence">Cadence: every 30 days · personal call/text</div></div>
+        <div class="tier-card t2"><div class="tier-num">52</div><div class="tier-name" data-i18n="sphere.t2.name">Tier 2 · Active Network</div><div class="tier-desc" data-i18n="sphere.t2.desc">Past coworkers, church/temple, parents from kids' school, gym friends. People who know you well.</div><div class="tier-cadence" data-i18n="sphere.t2.cadence">Cadence: every 60 days · text/email</div></div>
+        <div class="tier-card t3"><div class="tier-num">68</div><div class="tier-name" data-i18n="sphere.t3.name">Tier 3 · Acquaintances</div><div class="tier-desc" data-i18n="sphere.t3.desc">People you've met more than once. LinkedIn connections, neighbors, casual contacts.</div><div class="tier-cadence" data-i18n="sphere.t3.cadence">Cadence: every 90 days · email/newsletter</div></div>
+        <div class="tier-card t4"><div class="tier-num">26</div><div class="tier-name" data-i18n="sphere.t4.name">Tier 4 · Past Clients</div><div class="tier-desc" data-i18n="sphere.t4.desc">Anyone you (or your co-agent) helped buy or sell. Annual touch + life-event triggers.</div><div class="tier-cadence" data-i18n="sphere.t4.cadence">Cadence: quarterly market update + birthdays</div></div>
       </div>
       <div class="panel" style="margin-top: 22px; padding: 0;">
         <table class="table">
@@ -434,7 +446,7 @@
     </div>
 
     <div class="view" id="view-leads">
-      <div class="page-header"><div><div class="page-subtitle">14 active · 4 buyers · 1 listing · 9 nurture · 1 in escrow</div><div class="page-title">Lead Pipeline</div></div><div class="page-actions"><button class="btn ghost">Filter by source</button><button class="btn primary">+ New Lead</button></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="leads.subtitle">14 active · 4 buyers · 1 listing · 9 nurture · 1 in escrow</div><div class="page-title" data-i18n="leads.title">Lead Pipeline</div></div><div class="page-actions"><button class="btn ghost" data-i18n="leads.action.filter">Filter by source</button><button class="btn primary" data-i18n="leads.action.add">+ New Lead</button></div></div>
       <div class="pipeline">
         <div class="pipe-col active"><div class="pipe-name">New</div><div class="pipe-count">3</div><div class="pipe-names">FB ads</div></div>
         <div class="pipe-col active"><div class="pipe-name">Nurture</div><div class="pipe-count">5</div><div class="pipe-names">Long-tail</div></div>
@@ -463,27 +475,27 @@
     </div>
 
     <div class="view" id="view-brand">
-      <div class="page-header"><div><div class="page-subtitle">Personal brand · Instagram + LinkedIn + personal site + email signature</div><div class="page-title">Personal Brand</div></div><div class="page-actions"><button class="btn primary">View live brand site</button></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="brand.subtitlePage">Personal brand · Instagram + LinkedIn + personal site + email signature</div><div class="page-title" data-i18n="brand.title">Personal Brand</div></div><div class="page-actions"><button class="btn primary" data-i18n="brand.action.view">View live brand site</button></div></div>
       <div class="grid-3">
         <div class="panel">
-          <div class="panel-header"><div class="panel-title">Agent A brand</div></div>
+          <div class="panel-header"><div class="panel-title" data-i18n="brand.a.title">Agent A brand</div></div>
           <div style="height: 80px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-bright) 100%); border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic;">Agent A</div>
-          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;">Personal site (template). Instagram + LinkedIn + Facebook business page. Email signature with bio + featured listings. Business cards ordered.</p>
+          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;" data-i18n="brand.a.desc">Personal site (template). Instagram + LinkedIn + Facebook business page. Email signature with bio + featured listings. Business cards ordered.</p>
         </div>
         <div class="panel">
-          <div class="panel-header"><div class="panel-title">Agent B brand</div></div>
+          <div class="panel-header"><div class="panel-title" data-i18n="brand.b.title">Agent B brand</div></div>
           <div style="height: 80px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%); border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic;">Agent B</div>
-          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;">Personal site. Instagram-first (demo skews younger). Both sites cross-link as a team.</p>
+          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;" data-i18n="brand.b.desc">Personal site. Instagram-first (demo skews younger). Both sites cross-link as a team.</p>
         </div>
         <div class="panel">
-          <div class="panel-header"><div class="panel-title">Team brand</div></div>
+          <div class="panel-header"><div class="panel-title" data-i18n="brand.team.title">Team brand</div></div>
           <div style="height: 80px; background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-4) 100%); border-radius: 6px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: var(--navy); font-family: 'Playfair Display', serif; font-size: 18px;">The Agent Team</div>
-          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;">Shared landing page. Listing presentations branded with both names. Family-team angle is your differentiator.</p>
+          <p style="font-size: 12px; color: var(--text-dim); line-height: 1.5;" data-i18n="brand.team.desc">Shared landing page. Listing presentations branded with both names. Family-team angle is your differentiator.</p>
         </div>
       </div>
       <div class="panel">
-        <div class="panel-header"><div class="panel-title">Content calendar — auto-generated weekly</div></div>
-        <p style="font-size: 12px; color: var(--text-dim); line-height: 1.6; margin-bottom: 14px;">Each week the system queues 5 posts based on: market updates, just-sold in your farm area, life-event prompts (anniversaries to past clients), educational content, and one personal/story post.</p>
+        <div class="panel-header"><div class="panel-title" data-i18n="brand.content.title">Content calendar — auto-generated weekly</div></div>
+        <p style="font-size: 12px; color: var(--text-dim); line-height: 1.6; margin-bottom: 14px;" data-i18n="brand.content.desc">Each week the system queues 5 posts based on: market updates, just-sold in your farm area, life-event prompts (anniversaries to past clients), educational content, and one personal/story post.</p>
         <table class="table">
           <thead><tr><th>Day</th><th>Channel</th><th>Type</th><th>Status</th></tr></thead>
           <tbody>
@@ -500,29 +512,29 @@
     <div class="view" id="view-social">
       <div class="page-header">
         <div>
-          <div class="page-subtitle">Auto-publish · cross-platform · sphere amplification · DM-to-lead capture · 14 posts queued</div>
-          <div class="page-title">Social Engine</div>
+          <div class="page-subtitle" data-i18n="social.subtitle">Auto-publish · cross-platform · sphere amplification · DM-to-lead capture · 14 posts queued</div>
+          <div class="page-title" data-i18n="social.title">Social Engine</div>
         </div>
         <div class="page-actions">
-          <button class="btn ghost">Connect accounts</button>
-          <button class="btn primary">+ Generate this week</button>
+          <button class="btn ghost" data-i18n="social.action.connect">Connect accounts</button>
+          <button class="btn primary" data-i18n="social.action.generate">+ Generate this week</button>
         </div>
       </div>
 
-      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px; max-width: 60em;">A new realtor's biggest problem is invisibility. The Social Engine fixes that on autopilot: each week it generates 12-15 posts across your channels, schedules them, captures DMs and comments as leads, and gives your sphere a one-tap button to re-share. Goal: never go a day where someone in your network forgets you sell real estate now.</p>
+      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px; max-width: 60em;" data-i18n="social.intro">A new realtor's biggest problem is invisibility. The Social Engine fixes that on autopilot: each week it generates 12-15 posts across your channels, schedules them, captures DMs and comments as leads, and gives your sphere a one-tap button to re-share. Goal: never go a day where someone in your network forgets you sell real estate now.</p>
 
       <div class="stat-grid">
-        <div class="stat"><div class="stat-label">Posts This Month</div><div class="stat-value">42</div><div class="stat-delta">+18 vs prior month</div></div>
-        <div class="stat"><div class="stat-label">Reach (30d)</div><div class="stat-value">11.4k</div><div class="stat-delta">+62% MoM</div></div>
-        <div class="stat"><div class="stat-label">DMs → Leads</div><div class="stat-value">9</div><div class="stat-delta">3 qualified · 1 toured</div></div>
-        <div class="stat"><div class="stat-label">Sphere Re-shares</div><div class="stat-value">47</div><div class="stat-delta">23 amplifiers active</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="social.stat.posts">Posts This Month</div><div class="stat-value">42</div><div class="stat-delta" data-i18n="social.stat.posts.delta">+18 vs prior month</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="social.stat.reach">Reach (30d)</div><div class="stat-value">11.4k</div><div class="stat-delta" data-i18n="social.stat.reach.delta">+62% MoM</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="social.stat.dms">DMs → Leads</div><div class="stat-value">9</div><div class="stat-delta" data-i18n="social.stat.dms.delta">3 qualified · 1 toured</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="social.stat.shares">Sphere Re-shares</div><div class="stat-value">47</div><div class="stat-delta" data-i18n="social.stat.shares.delta">23 amplifiers active</div></div>
       </div>
 
       <div class="grid-2">
         <div>
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">14-day publishing calendar — auto-scheduled</div>
+              <div class="panel-title" data-i18n="social.calendar.title">14-day publishing calendar — auto-scheduled</div>
               <a class="panel-link">View full month</a>
             </div>
             <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 16px;">The engine builds a balanced mix: 30% listings, 25% market data, 20% educational, 15% personal/team, 10% sphere/community. Every post is editable before it ships.</p>
@@ -549,7 +561,7 @@
 
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">Post templates — auto-fill from your data</div>
+              <div class="panel-title" data-i18n="social.templates.title">Post templates — auto-fill from your data</div>
             </div>
             <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Pick a template, the engine fills it with your listing data, market data, or sphere/calendar context. Captions, hashtags, image overlays, and platform variants all generated.</p>
             <div class="collateral-grid">
@@ -567,7 +579,7 @@
 
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">Repurpose Engine — 1 listing → 9 posts</div>
+              <div class="panel-title" data-i18n="social.repurpose.title">Repurpose Engine — 1 listing → 9 posts</div>
             </div>
             <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Every new listing automatically generates a 2-week content arc. You shot the photos once — the engine spreads them across formats and channels so nothing is left on the table.</p>
             <div class="grid-3">
@@ -698,33 +710,33 @@
     <div class="view" id="view-groups">
       <div class="page-header">
         <div>
-          <div class="page-subtitle">Bucks County PA · Russian + Ukrainian community focus · 47 groups identified · 18 joined · 9 posts ready to approve</div>
-          <div class="page-title">FB Groups Engine</div>
+          <div class="page-subtitle" data-i18n="groups.subtitle">Bucks County PA · Russian + Ukrainian community focus · 47 groups identified · 18 joined · 9 posts ready to approve</div>
+          <div class="page-title" data-i18n="groups.title">FB Groups Engine</div>
         </div>
         <div class="page-actions">
-          <button class="btn ghost">Suggest new groups</button>
-          <button class="btn primary">Approve all (9)</button>
+          <button class="btn ghost" data-i18n="groups.action.suggest">Suggest new groups</button>
+          <button class="btn primary" data-i18n="groups.action.approve">Approve all (9)</button>
         </div>
       </div>
 
       <div style="background: linear-gradient(135deg, rgba(176,130,54,0.08) 0%, rgba(196,136,10,0.04) 100%); border: 1px solid rgba(176,130,54,0.3); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.6px; color: var(--gold); margin-bottom: 8px;">HOW THIS WORKS · IMPORTANT</div>
-        <p style="font-size: 13px; line-height: 1.6; color: var(--ink);">Meta blocks automatic posting to Facebook Groups (since 2024). The engine instead does three things on autopilot: <strong>(1)</strong> maintains a curated list of relevant groups with one-tap apply links, <strong>(2)</strong> generates ready-to-publish posts in EN / RU / UA matched to each group's rules and audience, <strong>(3)</strong> queues posts for your approval — one tap copies the post + opens the group in a new tab, you paste and click Post. Friction stays low; ban risk stays at zero.</p>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.6px; color: var(--gold); margin-bottom: 8px;" data-i18n="groups.howWorks.label">HOW THIS WORKS · IMPORTANT</div>
+        <p style="font-size: 13px; line-height: 1.6; color: var(--ink);" data-i18n="groups.howWorks.body">Meta blocks automatic posting to Facebook Groups (since 2024). The engine instead does three things on autopilot: <strong>(1)</strong> maintains a curated list of relevant groups with one-tap apply links, <strong>(2)</strong> generates ready-to-publish posts in EN / RU / UA matched to each group's rules and audience, <strong>(3)</strong> queues posts for your approval — one tap copies the post + opens the group in a new tab, you paste and click Post. Friction stays low; ban risk stays at zero.</p>
       </div>
 
       <div class="stat-grid">
-        <div class="stat"><div class="stat-label">Groups Identified</div><div class="stat-value">47</div><div class="stat-delta">18 real estate · 14 local · 15 community</div></div>
-        <div class="stat"><div class="stat-label">Joined / Pending</div><div class="stat-value">18 / 11</div><div class="stat-delta">11 awaiting admin approval</div></div>
-        <div class="stat"><div class="stat-label">Posts Ready</div><div class="stat-value">9</div><div class="stat-delta">3 EN · 4 RU · 2 UA</div></div>
-        <div class="stat"><div class="stat-label">Reach (30d)</div><div class="stat-value">4.2k</div><div class="stat-delta">2 leads sourced from groups</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="groups.stat.identified">Groups Identified</div><div class="stat-value">47</div><div class="stat-delta" data-i18n="groups.stat.identified.delta">18 real estate · 14 local · 15 community</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="groups.stat.joined">Joined / Pending</div><div class="stat-value">18 / 11</div><div class="stat-delta" data-i18n="groups.stat.joined.delta">11 awaiting admin approval</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="groups.stat.ready">Posts Ready</div><div class="stat-value">9</div><div class="stat-delta" data-i18n="groups.stat.ready.delta">3 EN · 4 RU · 2 UA</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="groups.stat.reach">Reach (30d)</div><div class="stat-value">4.2k</div><div class="stat-delta" data-i18n="groups.stat.reach.delta">2 leads sourced from groups</div></div>
       </div>
 
       <div class="panel">
         <div class="panel-header">
-          <div class="panel-title">Approval Queue — 9 posts ready to publish</div>
-          <a class="panel-link">Schedule batch</a>
+          <div class="panel-title" data-i18n="groups.queue.title">Approval Queue — 9 posts ready to publish</div>
+          <a class="panel-link" data-i18n="groups.queue.batch">Schedule batch</a>
         </div>
-        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 18px;">Each card = one post for one group. Tap "Copy + Open Group" → post is copied to clipboard, group opens in new tab, you paste + click Post. Average 12 seconds per group.</p>
+        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 18px;" data-i18n="groups.queue.desc">Each card = one post for one group. Tap "Copy + Open Group" → post is copied to clipboard, group opens in new tab, you paste + click Post. Average 12 seconds per group.</p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
 
@@ -852,7 +864,7 @@
         <div>
           <div class="panel">
             <div class="panel-header">
-              <div class="panel-title">Group Catalog · 47 identified</div>
+              <div class="panel-title" data-i18n="groups.catalog.title">Group Catalog · 47 identified</div>
               <a class="panel-link">+ Suggest more</a>
             </div>
             <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Curated for Bucks County PA + Russian/Ukrainian community focus. Each group is tagged by audience + rules (self-promo allowed? value-add only? Realtor-Sunday?). The engine only queues posts that match each group's rules.</p>
@@ -938,7 +950,7 @@
     </div>
 
     <div class="view" id="view-collateral">
-      <div class="page-header"><div><div class="page-subtitle">Templates + assets · ready to use</div><div class="page-title">Collateral + Templates</div></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="collateral.subtitle">Templates + assets · ready to use</div><div class="page-title" data-i18n="collateral.title">Collateral + Templates</div></div></div>
       <div class="collateral-grid">
         <div class="collateral"><div class="collateral-icon">📄</div><div class="collateral-name">Listing presentation</div><div class="collateral-desc">22-slide branded deck. CMA + unique-selling-points + commission structure. Editable per listing.</div><span class="collateral-status ready">READY</span></div>
         <div class="collateral"><div class="collateral-icon">📋</div><div class="collateral-name">Buyer consultation packet</div><div class="collateral-desc">First-meeting walkthrough · what to expect, financing options, timeline, agency disclosure.</div><span class="collateral-status ready">READY</span></div>
@@ -954,15 +966,15 @@
     </div>
 
     <div class="view" id="view-ads">
-      <div class="page-header"><div><div class="page-subtitle">Facebook + Instagram + Google + Zillow Premier Agent</div><div class="page-title">Lead Ads</div></div><div class="page-actions"><button class="btn primary">+ New Campaign</button></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="ads.subtitle">Facebook + Instagram + Google + Zillow Premier Agent</div><div class="page-title" data-i18n="ads.title">Lead Ads</div></div><div class="page-actions"><button class="btn primary" data-i18n="ads.action.new">+ New Campaign</button></div></div>
       <div class="stat-grid">
-        <div class="stat"><div class="stat-label">Monthly Ad Spend</div><div class="stat-value">$800</div><div class="stat-delta">Right baseline for new agent</div></div>
-        <div class="stat"><div class="stat-label">Leads This Month</div><div class="stat-value">24</div><div class="stat-delta">CPL $33 · industry avg $50</div></div>
-        <div class="stat"><div class="stat-label">Qualified</div><div class="stat-value">8</div><div class="stat-delta">33% quality rate</div></div>
-        <div class="stat"><div class="stat-label">CPA (qualified)</div><div class="stat-value">$100</div><div class="stat-delta">Strong for new agent</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="ads.stat.spend">Monthly Ad Spend</div><div class="stat-value">$800</div><div class="stat-delta" data-i18n="ads.stat.spend.delta">Right baseline for new agent</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="ads.stat.leads">Leads This Month</div><div class="stat-value">24</div><div class="stat-delta" data-i18n="ads.stat.leads.delta">CPL $33 · industry avg $50</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="ads.stat.qualified">Qualified</div><div class="stat-value">8</div><div class="stat-delta" data-i18n="ads.stat.qualified.delta">33% quality rate</div></div>
+        <div class="stat"><div class="stat-label" data-i18n="ads.stat.cpa">CPA (qualified)</div><div class="stat-value">$100</div><div class="stat-delta" data-i18n="ads.stat.cpa.delta">Strong for new agent</div></div>
       </div>
       <div class="panel">
-        <div class="panel-header"><div class="panel-title">Active campaigns</div></div>
+        <div class="panel-header"><div class="panel-title" data-i18n="ads.panel.title">Active campaigns</div></div>
         <table class="table">
           <thead><tr><th>Campaign</th><th>Platform</th><th>Audience</th><th>Spend / Mo</th><th>Leads</th><th>Status</th></tr></thead>
           <tbody>
@@ -978,9 +990,9 @@
     </div>
 
     <div class="view" id="view-open-houses">
-      <div class="page-header"><div><div class="page-subtitle">The single best lead-gen activity for new agents · do 2 per weekend</div><div class="page-title">Open Houses</div></div></div>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="oh.subtitle">The single best lead-gen activity for new agents · do 2 per weekend</div><div class="page-title" data-i18n="oh.title">Open Houses</div></div></div>
       <div class="panel">
-        <div class="panel-header"><div class="panel-title">This weekend</div></div>
+        <div class="panel-header"><div class="panel-title" data-i18n="oh.weekend">This weekend</div></div>
         <div class="activity-item"><div class="activity-icon">SA</div><div class="activity-text"><div><strong>Sat 12-3 PM · 8 Sunset Blvd</strong></div><div class="activity-time">YOUR LISTING · BOTH HOSTING · TARGET 30+ SIGN-INS</div></div></div>
         <div class="activity-item"><div class="activity-icon">SU</div><div class="activity-text"><div><strong>Sun 1-4 PM · 1812 Cherry Ln (borrowed listing)</strong></div><div class="activity-time">AGENT B HOSTING · CO-AGENT APPROVED · LEAD-GEN ONLY</div></div></div>
       </div>
@@ -998,26 +1010,26 @@
       </div>
     </div>
 
-    <div class="view" id="view-appointments"><div class="page-header"><div><div class="page-subtitle">5 booked next 14 days · 2 buyer · 3 listing · CE</div><div class="page-title">Appointments</div></div></div><div class="coming-soon"><h3>Appointment Calendar</h3><p>Per-appointment prep checklists + auto-confirmation + post-meeting follow-up.</p><ul><li>Pre-appointment prep checklist</li><li>Auto-confirm 24 hrs + 2 hrs before</li><li>Post-appointment debrief log</li><li>Next-action queue</li></ul></div></div>
+    <div class="view" id="view-appointments"><div class="page-header"><div><div class="page-subtitle" data-i18n="appts.subtitle">5 booked next 14 days · 2 buyer · 3 listing · CE</div><div class="page-title" data-i18n="appts.title">Appointments</div></div></div><div class="coming-soon"><h3 data-i18n="appts.cs.title">Appointment Calendar</h3><p data-i18n="appts.cs.desc">Per-appointment prep checklists + auto-confirmation + post-meeting follow-up.</p></div></div>
 
-    <div class="view" id="view-market"><div class="page-header"><div><div class="page-subtitle">NJ market data · zip-level · for client conversations + listing pres</div><div class="page-title">Market Data</div></div></div><div class="coming-soon"><h3>Market Intelligence</h3><p>MLS-fed real-time inventory + median price + DOM + absorption rate per ZIP.</p><ul><li>Per-ZIP median price + DOM + active inventory</li><li>Per-ZIP absorption rate</li><li>Just-sold + just-listed feeds</li><li>3-yr trend charts ready for listing presentation</li><li>Auto-CMA generation in 2 min</li></ul></div></div>
+    <div class="view" id="view-market"><div class="page-header"><div><div class="page-subtitle" data-i18n="market.subtitle">NJ market data · zip-level · for client conversations + listing pres</div><div class="page-title" data-i18n="market.title">Market Data</div></div></div><div class="coming-soon"><h3 data-i18n="market.cs.title">Market Intelligence</h3><p data-i18n="market.cs.desc">MLS-fed real-time inventory + median price + DOM + absorption rate per ZIP.</p></div></div>
 
-    <div class="view" id="view-scripts"><div class="page-header"><div><div class="page-subtitle">Library of scripts · sphere intro · OH follow-up · FSBO · expired · door knock</div><div class="page-title">Scripts + Templates</div></div></div><div class="coming-soon"><h3>Script Library</h3><p>Vetted scripts from top training programs (Mike Ferry, Tom Ferry, Buffini), adapted for NJ.</p><ul><li>Sphere first-call ("I'm in real estate now")</li><li>Open-house follow-up sequence</li><li>FSBO conversion call</li><li>Expired listing call</li><li>Door-knock 30-second intro</li><li>Listing presentation closing script</li><li>Buyer consultation opening</li></ul></div></div>
+    <div class="view" id="view-scripts"><div class="page-header"><div><div class="page-subtitle" data-i18n="scripts.subtitle">Library of scripts · sphere intro · OH follow-up · FSBO · expired · door knock</div><div class="page-title" data-i18n="scripts.title">Scripts + Templates</div></div></div><div class="coming-soon"><h3 data-i18n="scripts.cs.title">Script Library</h3><p data-i18n="scripts.cs.desc">Vetted scripts from top training programs (Mike Ferry, Tom Ferry, Buffini), adapted for NJ.</p></div></div>
 
-    <div class="view" id="view-ce"><div class="page-header"><div><div class="page-subtitle">NJ + PA CE tracking · upcoming · broker prep</div><div class="page-title">CE + Licensing</div></div></div><div class="coming-soon"><h3>CE + Career Track</h3><p>License renewal tracking + career-stage trainings + broker exam prep.</p><ul><li>NJ + PA CE hour tracking with auto-expiration alerts</li><li>Course catalog with peer ratings</li><li>Broker exam prep curriculum</li><li>Top-producer training subscriptions</li><li>Conference + retreat calendar</li></ul></div></div>
+    <div class="view" id="view-ce"><div class="page-header"><div><div class="page-subtitle" data-i18n="ce.subtitle">NJ + PA CE tracking · upcoming · broker prep</div><div class="page-title" data-i18n="ce.title">CE + Licensing</div></div></div><div class="coming-soon"><h3 data-i18n="ce.cs.title">CE + Career Track</h3><p data-i18n="ce.cs.desc">License renewal tracking + career-stage trainings + broker exam prep.</p></div></div>
 
     <div class="view" id="view-team">
-      <div class="page-header"><div><div class="page-subtitle">Two-agent team · split rules · co-listing structure · lead routing</div><div class="page-title">Team Split + Routing</div></div></div>
-      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px;">Family teams have a 2× higher first-year close rate than solo new agents — because the team can be in two places at once (showings + open house), and because referrals to one count for both. The Launch Kit handles lead routing + split tracking so neither agent feels like the other is taking the better leads.</p>
+      <div class="page-header"><div><div class="page-subtitle" data-i18n="team.subtitle">Two-agent team · split rules · co-listing structure · lead routing</div><div class="page-title" data-i18n="team.title">Team Split + Routing</div></div></div>
+      <p style="font-size: 13px; color: var(--text-dim); line-height: 1.6; margin-bottom: 22px;" data-i18n="team.intro">Family teams have a 2× higher first-year close rate than solo new agents — because the team can be in two places at once (showings + open house), and because referrals to one count for both. The Launch Kit handles lead routing + split tracking so neither agent feels like the other is taking the better leads.</p>
       <div class="grid-2">
         <div class="panel">
-          <div class="panel-header"><div class="panel-title">Lead routing rules</div></div>
+          <div class="panel-header"><div class="panel-title" data-i18n="team.routing.title">Lead routing rules</div></div>
           <div class="activity-item"><div class="activity-icon">A</div><div class="activity-text"><div><strong>Agent A takes:</strong> personal sphere + Hamilton + Mercerville + Trenton corridor</div><div class="activity-time">PLUS · ANY LEAD WORKED FIRST · PLUS LinkedIn-sourced</div></div></div>
           <div class="activity-item"><div class="activity-icon">B</div><div class="activity-text"><div><strong>Agent B takes:</strong> personal sphere + Princeton + Lawrenceville + Pennington</div><div class="activity-time">PLUS · IG/TT-sourced · PLUS Open-house leads where she hosted</div></div></div>
           <div class="activity-item"><div class="activity-icon">★</div><div class="activity-text"><div><strong>Co-list:</strong> Family + mutual-friend sphere leads · split 50/50</div><div class="activity-time">CLEAR ATTRIBUTION RULES · NO TURF FIGHTS</div></div></div>
         </div>
         <div class="panel">
-          <div class="panel-header"><div class="panel-title">Commission split this month</div></div>
+          <div class="panel-header"><div class="panel-title" data-i18n="team.split.title">Commission split this month</div></div>
           <div class="activity-item"><div class="activity-icon">$</div><div class="activity-text"><div><strong>Agent A: $0 closed YTD</strong> · 1 in escrow ($7,275 expected July)</div></div></div>
           <div class="activity-item"><div class="activity-icon">$</div><div class="activity-text"><div><strong>Agent B: $0 closed YTD</strong> · 4 active buyers in pipeline</div></div></div>
           <div class="activity-item"><div class="activity-icon">$</div><div class="activity-text"><div><strong>Team expense pool: $1,200/mo</strong> · ads + tools + CE</div><div class="activity-time">SPLIT 50/50 OR PRO-RATA TO CLOSINGS</div></div></div>
@@ -1025,14 +1037,357 @@
       </div>
     </div>
 
-    <div class="view" id="view-reports"><div class="page-header"><div><div class="page-subtitle">Activity-driven · GCI forecast · per-source attribution</div><div class="page-title">Reports</div></div></div><div class="coming-soon"><h3>New-Agent Reports</h3><p>Numbers that matter when you're building. NOT vanity metrics.</p><ul><li>10-3-1 streak + completion rate</li><li>SOI coverage (% on cadence)</li><li>Lead-source CPA analysis</li><li>Open-house conversion (sign-ins → appts → deals)</li><li>Time-to-first-deal benchmarking vs new-agent average</li><li>90-day GCI forecast</li></ul></div></div>
+    <div class="view" id="view-reports"><div class="page-header"><div><div class="page-subtitle" data-i18n="reports.subtitle">Activity-driven · GCI forecast · per-source attribution</div><div class="page-title" data-i18n="reports.title">Reports</div></div></div><div class="coming-soon"><h3 data-i18n="reports.cs.title">New-Agent Reports</h3><p data-i18n="reports.cs.desc">Numbers that matter when you're building. NOT vanity metrics.</p></div></div>
 
   </main>
 </div>
 
-<footer>New Realtor Launch Kit · For new-agent teams · Built by <span>Heisenbug</span> · v0.1</footer>
+<footer><span data-i18n="footer">New Realtor Launch Kit · For new-agent teams · Built by</span> <span>Heisenbug</span> · v0.2</footer>
 
 <script>
+  const I18N = {
+    en: {
+      'brand.name': 'New Realtor Launch Kit',
+      'brand.subtitle': 'From zero clients → first deal in 90 days · family-team edition',
+      'team.label': 'Team · 2 agents',
+      'footer': 'New Realtor Launch Kit · For new-agent teams · Built by',
+      'link.fullList': 'Full list', 'link.allLeads': 'All leads',
+
+      'nav.label.dailyHabit': 'Daily Habit', 'nav.label.pipeline': 'Pipeline', 'nav.label.marketing': 'Marketing', 'nav.label.knowledge': 'Knowledge', 'nav.label.team': 'Team',
+      'nav.dashboard': "Today's Dashboard", 'nav.prospecting': "Today's Prospecting",
+      'nav.sphere': 'Sphere of Influence', 'nav.leads': 'Lead Pipeline', 'nav.appointments': 'Appointments',
+      'nav.brand': 'Personal Brand', 'nav.social': 'Social Engine', 'nav.groups': 'FB Groups Engine', 'nav.collateral': 'Collateral + Templates', 'nav.ads': 'Lead Ads', 'nav.openHouses': 'Open Houses',
+      'nav.market': 'Market Data', 'nav.scripts': 'Scripts + Templates', 'nav.ce': 'CE + Licensing',
+      'nav.team': 'Team Split + Routing', 'nav.reports': 'Reports',
+
+      'dashboard.subtitle': 'Saturday · June 7, 2026 · Day 23 of first 90 · On pace',
+      'dashboard.title': 'Welcome back',
+      'dashboard.actionList': "Open today's list", 'dashboard.actionLog': '+ Log conversation',
+      'habit.title': 'The 10-3-1 daily habit · the only thing that matters',
+      'habit.streak': 'Day 23 streak',
+      'habit.contacts': 'contacts', 'habit.conversations': 'conversations', 'habit.appointment': 'appointment',
+      'habit.desc': "Every day. Doesn't matter what kind — a text to your sphere, a call to a past customer, a door knock, an open house follow-up. Just do the 10-3-1. After 90 days of this, you have deals. Skip three days and you're starting over.",
+      'habit.label.contacts': 'Contacts today', 'habit.label.conversations': 'Real conversations', 'habit.label.appointment': 'Appointment booked',
+      'stat.sphere': 'Sphere Built', 'stat.sphere.delta': '+8 this week · target 200',
+      'stat.activeLeads': 'Active Leads', 'stat.activeLeads.delta': '4 buyers · 1 listing · 9 nurture',
+      'stat.appts': 'Appointments', 'stat.appts.delta': 'Next 14 days',
+      'stat.streak': 'Days Streak', 'stat.streak.delta': "Don't break it",
+      'dashboard.prospecting.title': "Today's prospecting — 10 contacts",
+      'dashboard.prospecting.desc': 'Auto-generated each morning from sphere + active leads + farming neighborhood. Each contact has a suggested script.',
+      'dashboard.leads.title': 'Active leads — 14 in pipeline',
+      'dashboard.leads.note': 'First deal scheduled to close July 12 ($485K · estimated GCI: $7,275 to team).',
+      'pipe.new': 'New (today-3d)', 'pipe.nurture': 'Nurture', 'pipe.qualified': 'Qualified', 'pipe.touring': 'Touring', 'pipe.offer': 'Offer', 'pipe.closed': 'Closed',
+      'dashboard.week.title': 'This week ahead',
+      'dashboard.firstDeal.title': 'First-deal progress',
+      'dashboard.firstDeal.desc': "Most new agents close their first deal at day 60-90. You're ahead.",
+      'dashboard.firstDeal.day0': 'DAY 0', 'dashboard.firstDeal.day23': 'DAY 23 · YOU', 'dashboard.firstDeal.day90': 'DAY 90 · TARGET',
+      'dashboard.firstDeal.note': 'First deal in escrow already. Goal: 3 closings + 2 active listings by day 90.',
+
+      'prospecting.subtitle': "Today's 10 contacts · 3 done · 7 remaining",
+      'prospecting.title': "Today's Prospecting",
+      'prospecting.action.refresh': 'Refresh list', 'prospecting.action.add': '+ Add to today',
+      'prospecting.panel.title': 'Auto-generated list — based on cadence + warmth + signals',
+      'prospecting.panel.desc': 'The system prioritizes: (1) SOI contacts overdue based on tier cadence, (2) recent leads that need follow-up, (3) one farm-neighborhood activity per day, (4) anyone who mentioned a life event in past 6 months.',
+
+      'sphere.subtitle': '184 contacts · 16 to add to hit 200 target · 4 tiers by relationship warmth',
+      'sphere.title': 'Sphere of Influence',
+      'sphere.action.import': 'Import from phone', 'sphere.action.add': '+ Add contact',
+      'sphere.intro': 'Your sphere is the single highest-ROI source of business as a new agent. 85% of first-year agents who closed 6+ deals worked their sphere systematically. The Launch Kit assigns each contact a tier and a cadence — you just follow the daily list.',
+      'sphere.t1.name': 'Tier 1 · Inner Circle', 'sphere.t1.desc': "Family, closest friends, business partners. People who'd already help you with anything.", 'sphere.t1.cadence': 'Cadence: every 30 days · personal call/text',
+      'sphere.t2.name': 'Tier 2 · Active Network', 'sphere.t2.desc': "Past coworkers, church/temple, parents from kids' school, gym friends. People who know you well.", 'sphere.t2.cadence': 'Cadence: every 60 days · text/email',
+      'sphere.t3.name': 'Tier 3 · Acquaintances', 'sphere.t3.desc': "People you've met more than once. LinkedIn connections, neighbors, casual contacts.", 'sphere.t3.cadence': 'Cadence: every 90 days · email/newsletter',
+      'sphere.t4.name': 'Tier 4 · Past Clients', 'sphere.t4.desc': 'Anyone you (or your co-agent) helped buy or sell. Annual touch + life-event triggers.', 'sphere.t4.cadence': 'Cadence: quarterly market update + birthdays',
+
+      'leads.subtitle': '14 active · 4 buyers · 1 listing · 9 nurture · 1 in escrow',
+      'leads.title': 'Lead Pipeline',
+      'leads.action.filter': 'Filter by source', 'leads.action.add': '+ New Lead',
+
+      'brand.subtitlePage': 'Personal brand · Instagram + LinkedIn + personal site + email signature',
+      'brand.title': 'Personal Brand',
+      'brand.action.view': 'View live brand site',
+      'brand.a.title': 'Agent A brand', 'brand.a.desc': 'Personal site (template). Instagram + LinkedIn + Facebook business page. Email signature with bio + featured listings. Business cards ordered.',
+      'brand.b.title': 'Agent B brand', 'brand.b.desc': 'Personal site. Instagram-first (demo skews younger). Both sites cross-link as a team.',
+      'brand.team.title': 'Team brand', 'brand.team.desc': 'Shared landing page. Listing presentations branded with both names. Family-team angle is your differentiator.',
+      'brand.content.title': 'Content calendar — auto-generated weekly',
+      'brand.content.desc': 'Each week the system queues 5 posts based on: market updates, just-sold in your farm area, life-event prompts (anniversaries to past clients), educational content, and one personal/story post.',
+
+      'social.subtitle': 'Auto-publish · cross-platform · sphere amplification · DM-to-lead capture · 14 posts queued',
+      'social.title': 'Social Engine',
+      'social.action.connect': 'Connect accounts', 'social.action.generate': '+ Generate this week',
+      'social.intro': "A new realtor's biggest problem is invisibility. The Social Engine fixes that on autopilot: each week it generates 12-15 posts across your channels, schedules them, captures DMs and comments as leads, and gives your sphere a one-tap button to re-share. Goal: never go a day where someone in your network forgets you sell real estate now.",
+      'social.stat.posts': 'Posts This Month', 'social.stat.posts.delta': '+18 vs prior month',
+      'social.stat.reach': 'Reach (30d)', 'social.stat.reach.delta': '+62% MoM',
+      'social.stat.dms': 'DMs → Leads', 'social.stat.dms.delta': '3 qualified · 1 toured',
+      'social.stat.shares': 'Sphere Re-shares', 'social.stat.shares.delta': '23 amplifiers active',
+      'social.calendar.title': '14-day publishing calendar — auto-scheduled',
+      'social.templates.title': 'Post templates — auto-fill from your data',
+      'social.repurpose.title': 'Repurpose Engine — 1 listing → 9 posts',
+
+      'groups.subtitle': 'Bucks County PA · Russian + Ukrainian community focus · 47 groups identified · 18 joined · 9 posts ready to approve',
+      'groups.title': 'FB Groups Engine',
+      'groups.action.suggest': 'Suggest new groups', 'groups.action.approve': 'Approve all (9)',
+      'groups.howWorks.label': 'HOW THIS WORKS · IMPORTANT',
+      'groups.howWorks.body': "Meta blocks automatic posting to Facebook Groups (since 2024). The engine instead does three things on autopilot: <strong>(1)</strong> maintains a curated list of relevant groups with one-tap apply links, <strong>(2)</strong> generates ready-to-publish posts in EN / RU / UA matched to each group's rules and audience, <strong>(3)</strong> queues posts for your approval — one tap copies the post + opens the group in a new tab, you paste and click Post. Friction stays low; ban risk stays at zero.",
+      'groups.stat.identified': 'Groups Identified', 'groups.stat.identified.delta': '18 real estate · 14 local · 15 community',
+      'groups.stat.joined': 'Joined / Pending', 'groups.stat.joined.delta': '11 awaiting admin approval',
+      'groups.stat.ready': 'Posts Ready', 'groups.stat.ready.delta': '3 EN · 4 RU · 2 UA',
+      'groups.stat.reach': 'Reach (30d)', 'groups.stat.reach.delta': '2 leads sourced from groups',
+      'groups.queue.title': 'Approval Queue — 9 posts ready to publish',
+      'groups.queue.batch': 'Schedule batch',
+      'groups.queue.desc': 'Each card = one post for one group. Tap "Copy + Open Group" → post is copied to clipboard, group opens in new tab, you paste + click Post. Average 12 seconds per group.',
+      'groups.catalog.title': 'Group Catalog · 47 identified',
+
+      'collateral.subtitle': 'Templates + assets · ready to use', 'collateral.title': 'Collateral + Templates',
+      'ads.subtitle': 'Facebook + Instagram + Google + Zillow Premier Agent', 'ads.title': 'Lead Ads',
+      'ads.action.new': '+ New Campaign',
+      'ads.stat.spend': 'Monthly Ad Spend', 'ads.stat.spend.delta': 'Right baseline for new agent',
+      'ads.stat.leads': 'Leads This Month', 'ads.stat.leads.delta': 'CPL $33 · industry avg $50',
+      'ads.stat.qualified': 'Qualified', 'ads.stat.qualified.delta': '33% quality rate',
+      'ads.stat.cpa': 'CPA (qualified)', 'ads.stat.cpa.delta': 'Strong for new agent',
+      'ads.panel.title': 'Active campaigns',
+      'oh.subtitle': 'The single best lead-gen activity for new agents · do 2 per weekend', 'oh.title': 'Open Houses', 'oh.weekend': 'This weekend',
+      'appts.subtitle': '5 booked next 14 days · 2 buyer · 3 listing · CE', 'appts.title': 'Appointments', 'appts.cs.title': 'Appointment Calendar', 'appts.cs.desc': 'Per-appointment prep checklists + auto-confirmation + post-meeting follow-up.',
+      'market.subtitle': 'NJ market data · zip-level · for client conversations + listing pres', 'market.title': 'Market Data', 'market.cs.title': 'Market Intelligence', 'market.cs.desc': 'MLS-fed real-time inventory + median price + DOM + absorption rate per ZIP.',
+      'scripts.subtitle': 'Library of scripts · sphere intro · OH follow-up · FSBO · expired · door knock', 'scripts.title': 'Scripts + Templates', 'scripts.cs.title': 'Script Library', 'scripts.cs.desc': 'Vetted scripts from top training programs, adapted for your market.',
+      'ce.subtitle': 'NJ + PA CE tracking · upcoming · broker prep', 'ce.title': 'CE + Licensing', 'ce.cs.title': 'CE + Career Track', 'ce.cs.desc': 'License renewal tracking + career-stage trainings + broker exam prep.',
+      'team.subtitle': 'Two-agent team · split rules · co-listing structure · lead routing', 'team.title': 'Team Split + Routing',
+      'team.intro': 'Family teams have a 2× higher first-year close rate than solo new agents — because the team can be in two places at once (showings + open house), and because referrals to one count for both. The Launch Kit handles lead routing + split tracking so neither agent feels like the other is taking the better leads.',
+      'team.routing.title': 'Lead routing rules', 'team.split.title': 'Commission split this month',
+      'reports.subtitle': 'Activity-driven · GCI forecast · per-source attribution', 'reports.title': 'Reports', 'reports.cs.title': 'New-Agent Reports', 'reports.cs.desc': "Numbers that matter when you're building. NOT vanity metrics."
+    },
+
+    ru: {
+      'brand.name': 'Стартовый набор начинающего риелтора',
+      'brand.subtitle': 'От нуля клиентов → первая сделка за 90 дней · версия для семейной команды',
+      'team.label': 'Команда · 2 риелтора',
+      'footer': 'Стартовый набор начинающего риелтора · Для семейных команд · Создано',
+      'link.fullList': 'Весь список', 'link.allLeads': 'Все лиды',
+
+      'nav.label.dailyHabit': 'Ежедневная привычка', 'nav.label.pipeline': 'Воронка', 'nav.label.marketing': 'Маркетинг', 'nav.label.knowledge': 'База знаний', 'nav.label.team': 'Команда',
+      'nav.dashboard': 'Панель на сегодня', 'nav.prospecting': 'Обзвон сегодня',
+      'nav.sphere': 'Круг знакомых', 'nav.leads': 'Воронка лидов', 'nav.appointments': 'Встречи',
+      'nav.brand': 'Личный бренд', 'nav.social': 'Соцсети · автомат', 'nav.groups': 'Группы Facebook · автомат', 'nav.collateral': 'Материалы и шаблоны', 'nav.ads': 'Платная реклама', 'nav.openHouses': 'Открытые показы',
+      'nav.market': 'Данные рынка', 'nav.scripts': 'Скрипты и шаблоны', 'nav.ce': 'Лицензия и обучение',
+      'nav.team': 'Распределение и комиссия', 'nav.reports': 'Отчёты',
+
+      'dashboard.subtitle': 'Суббота · 7 июня 2026 · День 23 из первых 90 · По графику',
+      'dashboard.title': 'С возвращением',
+      'dashboard.actionList': 'Открыть список на сегодня', 'dashboard.actionLog': '+ Записать разговор',
+      'habit.title': 'Привычка 10-3-1 · единственное, что имеет значение',
+      'habit.streak': 'Серия 23 дня',
+      'habit.contacts': 'контактов', 'habit.conversations': 'разговора', 'habit.appointment': 'встреча',
+      'habit.desc': 'Каждый день. Не важно как — сообщение знакомому, звонок бывшему клиенту, стук в дверь, или follow-up после открытого показа. Просто делайте 10-3-1. Через 90 дней такого ритма — у вас будут сделки. Пропустили три дня — начинаете сначала.',
+      'habit.label.contacts': 'Контакты сегодня', 'habit.label.conversations': 'Настоящие разговоры', 'habit.label.appointment': 'Встреча назначена',
+      'stat.sphere': 'Контактов в базе', 'stat.sphere.delta': '+8 за неделю · цель 200',
+      'stat.activeLeads': 'Активных лидов', 'stat.activeLeads.delta': '4 покупателя · 1 листинг · 9 в работе',
+      'stat.appts': 'Встреч', 'stat.appts.delta': 'Ближайшие 14 дней',
+      'stat.streak': 'Дней подряд', 'stat.streak.delta': 'Не прерывайте',
+      'dashboard.prospecting.title': 'Обзвон сегодня — 10 контактов',
+      'dashboard.prospecting.desc': 'Список формируется каждое утро на основе круга знакомых, активных лидов и района, который вы прорабатываете. Для каждого контакта — готовый скрипт.',
+      'dashboard.leads.title': 'Активные лиды — 14 в работе',
+      'dashboard.leads.note': 'Первая сделка закрывается 12 июля ($485K · ожидаемая комиссия команды: $7,275).',
+      'pipe.new': 'Новые (0-3 дн)', 'pipe.nurture': 'В прогреве', 'pipe.qualified': 'Квалифицирован', 'pipe.touring': 'Показы', 'pipe.offer': 'Оффер', 'pipe.closed': 'Закрыто',
+      'dashboard.week.title': 'Эта неделя',
+      'dashboard.firstDeal.title': 'Путь к первой сделке',
+      'dashboard.firstDeal.desc': 'Большинство начинающих риелторов закрывают первую сделку на 60-90 день. Вы опережаете график.',
+      'dashboard.firstDeal.day0': 'ДЕНЬ 0', 'dashboard.firstDeal.day23': 'ДЕНЬ 23 · ВЫ', 'dashboard.firstDeal.day90': 'ДЕНЬ 90 · ЦЕЛЬ',
+      'dashboard.firstDeal.note': 'Первая сделка уже в эскроу. Цель: 3 закрытия + 2 активных листинга к 90 дню.',
+
+      'prospecting.subtitle': '10 контактов на сегодня · 3 сделано · 7 осталось',
+      'prospecting.title': 'Обзвон сегодня',
+      'prospecting.action.refresh': 'Обновить список', 'prospecting.action.add': '+ Добавить в сегодня',
+      'prospecting.panel.title': 'Список сформирован системой — по частоте контактов, теплоте отношений и сигналам',
+      'prospecting.panel.desc': 'Система ставит в приоритет: (1) контакты круга, до которых пора дотянуться по графику, (2) новые лиды, требующие follow-up, (3) одно действие в районе вашей работы в день, (4) всех, кто за последние 6 месяцев упомянул что-то важное (свадьба, ребёнок, новая работа).',
+
+      'sphere.subtitle': '184 контакта · 16 нужно добавить, чтобы выйти на цель 200 · 4 тира по теплоте отношений',
+      'sphere.title': 'Круг знакомых',
+      'sphere.action.import': 'Импортировать из телефона', 'sphere.action.add': '+ Добавить контакт',
+      'sphere.intro': 'Ваш круг знакомых — самый высокоокупаемый источник сделок для начинающего риелтора. 85% риелторов, закрывших 6+ сделок в первый год, системно работали со своим кругом. Стартовый набор присваивает каждому контакту тир и частоту контакта — вам остаётся только выполнять ежедневный список.',
+      'sphere.t1.name': 'Тир 1 · Ближний круг', 'sphere.t1.desc': 'Семья, ближайшие друзья, партнёры. Те, кто и так уже помогает вам во всём.', 'sphere.t1.cadence': 'Частота: каждые 30 дней · личный звонок или сообщение',
+      'sphere.t2.name': 'Тир 2 · Активный круг', 'sphere.t2.desc': 'Бывшие коллеги, церковь, родители одноклассников детей, друзья по спортзалу. Те, кто хорошо вас знает.', 'sphere.t2.cadence': 'Частота: каждые 60 дней · сообщение или email',
+      'sphere.t3.name': 'Тир 3 · Знакомые', 'sphere.t3.desc': 'Те, с кем вы виделись больше одного раза. Контакты в LinkedIn, соседи, случайные знакомства.', 'sphere.t3.cadence': 'Частота: каждые 90 дней · email или рассылка',
+      'sphere.t4.name': 'Тир 4 · Бывшие клиенты', 'sphere.t4.desc': 'Все, кому вы (или ваш партнёр по команде) помогли купить или продать. Ежегодный касание + триггеры по жизненным событиям.', 'sphere.t4.cadence': 'Частота: квартальный обзор рынка + дни рождения',
+
+      'leads.subtitle': '14 активных · 4 покупателя · 1 листинг · 9 в прогреве · 1 в эскроу',
+      'leads.title': 'Воронка лидов',
+      'leads.action.filter': 'Фильтр по источнику', 'leads.action.add': '+ Новый лид',
+
+      'brand.subtitlePage': 'Личный бренд · Instagram + LinkedIn + персональный сайт + подпись в email',
+      'brand.title': 'Личный бренд',
+      'brand.action.view': 'Открыть сайт',
+      'brand.a.title': 'Бренд риелтора A', 'brand.a.desc': 'Персональный сайт (шаблон). Instagram + LinkedIn + бизнес-страница Facebook. Подпись в email с био + избранные листинги. Визитки заказаны.',
+      'brand.b.title': 'Бренд риелтора B', 'brand.b.desc': 'Персональный сайт. Акцент на Instagram (демография моложе). Оба сайта взаимно связаны как команда.',
+      'brand.team.title': 'Бренд команды', 'brand.team.desc': 'Общая посадочная страница. Презентации листингов оформлены под обоих риелторов. Семейный формат команды — ваше отличие.',
+      'brand.content.title': 'Контент-календарь — формируется автоматически каждую неделю',
+      'brand.content.desc': 'Каждую неделю система ставит в очередь 5 публикаций: обзор рынка, just-sold в вашем районе, поздравления (юбилеи покупки у бывших клиентов), образовательный контент, и одну личную или историю.',
+
+      'social.subtitle': 'Автопубликация · все платформы · усиление через круг · DM в лид · 14 публикаций в очереди',
+      'social.title': 'Соцсети · автомат',
+      'social.action.connect': 'Подключить аккаунты', 'social.action.generate': '+ Сформировать на эту неделю',
+      'social.intro': 'Главная проблема начинающего риелтора — невидимость. Движок соцсетей решает её на автомате: каждую неделю он формирует 12-15 публикаций для всех ваших каналов, ставит в расписание, превращает DM и комментарии в лиды, и даёт вашему кругу кнопку «поделиться» в одно касание. Цель: чтобы ни одного дня никто из вашего окружения не забывал, что вы теперь работаете в недвижимости.',
+      'social.stat.posts': 'Публикаций за месяц', 'social.stat.posts.delta': '+18 к предыдущему месяцу',
+      'social.stat.reach': 'Охват (30 дн)', 'social.stat.reach.delta': '+62% к прошлому месяцу',
+      'social.stat.dms': 'DM → Лиды', 'social.stat.dms.delta': '3 квалифицированы · 1 на показе',
+      'social.stat.shares': 'Репостов от круга', 'social.stat.shares.delta': '23 активных амплифаера',
+      'social.calendar.title': 'Календарь публикаций на 14 дней — поставлено в расписание',
+      'social.templates.title': 'Шаблоны публикаций — автозаполнение из ваших данных',
+      'social.repurpose.title': 'Движок переупаковки — 1 листинг → 9 публикаций',
+
+      'groups.subtitle': 'Bucks County PA · фокус на русско- и украиноязычное сообщество · 47 групп найдено · 18 вступил · 9 публикаций готово к утверждению',
+      'groups.title': 'Группы Facebook · автомат',
+      'groups.action.suggest': 'Предложить новые группы', 'groups.action.approve': 'Утвердить все (9)',
+      'groups.howWorks.label': 'КАК ЭТО РАБОТАЕТ · ВАЖНО',
+      'groups.howWorks.body': 'Meta заблокировала автоматическую публикацию в группы Facebook (с 2024 года). Поэтому движок делает три вещи на автомате: <strong>(1)</strong> ведёт подобранный список релевантных групп со ссылками для вступления в одно касание, <strong>(2)</strong> формирует готовые публикации на английском, русском и украинском, подобранные под правила и аудиторию каждой группы, <strong>(3)</strong> ставит публикации в очередь на утверждение — одно касание копирует пост и открывает группу в новой вкладке, вы вставляете и публикуете. Трение минимальное, риск бана — нулевой.',
+      'groups.stat.identified': 'Групп найдено', 'groups.stat.identified.delta': '18 недвижимость · 14 локальные · 15 сообщество',
+      'groups.stat.joined': 'Вступил / Ожидает', 'groups.stat.joined.delta': '11 ожидают одобрения админа',
+      'groups.stat.ready': 'Постов готово', 'groups.stat.ready.delta': '3 EN · 4 RU · 2 UA',
+      'groups.stat.reach': 'Охват (30 дн)', 'groups.stat.reach.delta': '2 лида пришли из групп',
+      'groups.queue.title': 'Очередь на утверждение — 9 публикаций готово',
+      'groups.queue.batch': 'Поставить в расписание',
+      'groups.queue.desc': 'Каждая карточка — это одна публикация для одной группы. Нажмите «Скопировать и открыть группу» — текст копируется в буфер, группа открывается в новой вкладке, вы вставляете и публикуете. В среднем 12 секунд на группу.',
+      'groups.catalog.title': 'Каталог групп · найдено 47',
+
+      'collateral.subtitle': 'Шаблоны и материалы · готовы к использованию', 'collateral.title': 'Материалы и шаблоны',
+      'ads.subtitle': 'Facebook + Instagram + Google + Zillow Premier Agent', 'ads.title': 'Платная реклама',
+      'ads.action.new': '+ Новая кампания',
+      'ads.stat.spend': 'Бюджет в месяц', 'ads.stat.spend.delta': 'Правильная стартовая цифра для нового риелтора',
+      'ads.stat.leads': 'Лидов за месяц', 'ads.stat.leads.delta': 'Цена лида $33 · в среднем по индустрии $50',
+      'ads.stat.qualified': 'Квалифицированных', 'ads.stat.qualified.delta': '33% качества',
+      'ads.stat.cpa': 'CPA (квалифицированный)', 'ads.stat.cpa.delta': 'Сильный показатель для нового риелтора',
+      'ads.panel.title': 'Активные кампании',
+      'oh.subtitle': 'Лучший источник лидов для начинающего риелтора · 2 показа за выходные', 'oh.title': 'Открытые показы', 'oh.weekend': 'Эти выходные',
+      'appts.subtitle': '5 запланировано на 14 дней · 2 покупателя · 3 листинга · обучение', 'appts.title': 'Встречи', 'appts.cs.title': 'Календарь встреч', 'appts.cs.desc': 'Чек-листы подготовки для каждой встречи + автоподтверждение + follow-up после.',
+      'market.subtitle': 'Данные рынка по zip-коду · для разговоров с клиентами и презентаций листингов', 'market.title': 'Данные рынка', 'market.cs.title': 'Рыночная аналитика', 'market.cs.desc': 'Данные MLS в реальном времени — медианная цена, дни на рынке, абсорбция по каждому ZIP.',
+      'scripts.subtitle': 'Библиотека скриптов · знакомство с кругом · follow-up после показов · FSBO · истёкшие · стук в дверь', 'scripts.title': 'Скрипты и шаблоны', 'scripts.cs.title': 'Библиотека скриптов', 'scripts.cs.desc': 'Проверенные скрипты из лучших программ обучения, адаптированные под ваш рынок.',
+      'ce.subtitle': 'Учёт CE в NJ + PA · ближайшие занятия · подготовка к брокеру', 'ce.title': 'Лицензия и обучение', 'ce.cs.title': 'Карьерный трек', 'ce.cs.desc': 'Учёт часов CE для продления лицензии + тренинги по этапам карьеры + подготовка к экзамену на брокера.',
+      'team.subtitle': 'Команда из двух риелторов · правила распределения · совместные листинги · маршрутизация лидов', 'team.title': 'Распределение и комиссия',
+      'team.intro': 'Семейные команды закрывают первый год в 2 раза эффективнее одиночек — потому что команда может быть в двух местах одновременно (показ + открытый дом), и потому что рекомендации к одному засчитываются обоим. Стартовый набор ведёт маршрутизацию лидов и учёт комиссии, чтобы ни один из риелторов не чувствовал, что второй забирает лучшие лиды.',
+      'team.routing.title': 'Правила маршрутизации лидов', 'team.split.title': 'Комиссия в этом месяце',
+      'reports.subtitle': 'По активности · прогноз комиссии · атрибуция по источникам', 'reports.title': 'Отчёты', 'reports.cs.title': 'Отчёты для начинающего риелтора', 'reports.cs.desc': 'Цифры, которые имеют значение, пока вы строите бизнес. Без тщеславных метрик.'
+    },
+
+    uk: {
+      'brand.name': 'Стартовий набір ріелтора-початківця',
+      'brand.subtitle': 'Від нуля клієнтів → перша угода за 90 днів · версія для сімейної команди',
+      'team.label': 'Команда · 2 ріелтори',
+      'footer': 'Стартовий набір ріелтора-початківця · Для сімейних команд · Створено',
+      'link.fullList': 'Весь список', 'link.allLeads': 'Усі ліди',
+
+      'nav.label.dailyHabit': 'Щоденна звичка', 'nav.label.pipeline': 'Воронка', 'nav.label.marketing': 'Маркетинг', 'nav.label.knowledge': 'База знань', 'nav.label.team': 'Команда',
+      'nav.dashboard': 'Панель на сьогодні', 'nav.prospecting': 'Обдзвін сьогодні',
+      'nav.sphere': 'Коло знайомих', 'nav.leads': 'Воронка лідів', 'nav.appointments': 'Зустрічі',
+      'nav.brand': 'Особистий бренд', 'nav.social': 'Соцмережі · автомат', 'nav.groups': 'Групи Facebook · автомат', 'nav.collateral': 'Матеріали та шаблони', 'nav.ads': 'Платна реклама', 'nav.openHouses': 'Дні відкритих дверей',
+      'nav.market': 'Дані ринку', 'nav.scripts': 'Скрипти та шаблони', 'nav.ce': 'Ліцензія та навчання',
+      'nav.team': 'Розподіл та комісія', 'nav.reports': 'Звіти',
+
+      'dashboard.subtitle': 'Субота · 7 червня 2026 · День 23 з перших 90 · За графіком',
+      'dashboard.title': 'З поверненням',
+      'dashboard.actionList': 'Відкрити список на сьогодні', 'dashboard.actionLog': '+ Записати розмову',
+      'habit.title': 'Звичка 10-3-1 · єдине, що має значення',
+      'habit.streak': 'Серія 23 дні',
+      'habit.contacts': 'контактів', 'habit.conversations': 'розмови', 'habit.appointment': 'зустріч',
+      'habit.desc': 'Кожен день. Не важливо як — повідомлення знайомому, дзвінок колишньому клієнту, стук у двері, або follow-up після відкритого показу. Просто робіть 10-3-1. Через 90 днів такого ритму — у вас будуть угоди. Пропустили три дні — починаєте спочатку.',
+      'habit.label.contacts': 'Контакти сьогодні', 'habit.label.conversations': 'Справжні розмови', 'habit.label.appointment': 'Зустріч призначено',
+      'stat.sphere': 'Контактів у базі', 'stat.sphere.delta': '+8 за тиждень · ціль 200',
+      'stat.activeLeads': 'Активних лідів', 'stat.activeLeads.delta': '4 покупці · 1 лістинг · 9 у роботі',
+      'stat.appts': 'Зустрічей', 'stat.appts.delta': 'Найближчі 14 днів',
+      'stat.streak': 'Днів поспіль', 'stat.streak.delta': 'Не переривайте',
+      'dashboard.prospecting.title': 'Обдзвін сьогодні — 10 контактів',
+      'dashboard.prospecting.desc': 'Список формується щоранку на основі кола знайомих, активних лідів та району, який ви відпрацьовуєте. Для кожного контакту — готовий скрипт.',
+      'dashboard.leads.title': 'Активні ліди — 14 у роботі',
+      'dashboard.leads.note': 'Перша угода закривається 12 липня ($485K · очікувана комісія команди: $7,275).',
+      'pipe.new': 'Нові (0-3 дн)', 'pipe.nurture': 'У прогріві', 'pipe.qualified': 'Кваліфікований', 'pipe.touring': 'Покази', 'pipe.offer': 'Оффер', 'pipe.closed': 'Закрито',
+      'dashboard.week.title': 'Цей тиждень',
+      'dashboard.firstDeal.title': 'Шлях до першої угоди',
+      'dashboard.firstDeal.desc': 'Більшість ріелторів-початківців закривають першу угоду на 60-90 день. Ви випереджаєте графік.',
+      'dashboard.firstDeal.day0': 'ДЕНЬ 0', 'dashboard.firstDeal.day23': 'ДЕНЬ 23 · ВИ', 'dashboard.firstDeal.day90': 'ДЕНЬ 90 · ЦІЛЬ',
+      'dashboard.firstDeal.note': 'Перша угода вже в ескроу. Ціль: 3 закриття + 2 активні лістинги до 90 дня.',
+
+      'prospecting.subtitle': '10 контактів на сьогодні · 3 зроблено · 7 залишилось',
+      'prospecting.title': 'Обдзвін сьогодні',
+      'prospecting.action.refresh': 'Оновити список', 'prospecting.action.add': '+ Додати до сьогодні',
+      'prospecting.panel.title': 'Список сформовано системою — за частотою контактів, теплотою стосунків та сигналами',
+      'prospecting.panel.desc': 'Система ставить у пріоритет: (1) контакти кола, до яких пора достукатися за графіком, (2) нові ліди, що потребують follow-up, (3) одну дію у районі вашої роботи на день, (4) усіх, хто за останні 6 місяців згадав щось важливе (весілля, дитина, нова робота).',
+
+      'sphere.subtitle': '184 контакти · 16 треба додати, щоб вийти на ціль 200 · 4 тири за теплотою стосунків',
+      'sphere.title': 'Коло знайомих',
+      'sphere.action.import': 'Імпортувати з телефону', 'sphere.action.add': '+ Додати контакт',
+      'sphere.intro': 'Ваше коло знайомих — найвища окупність для ріелтора-початківця. 85% ріелторів, які закрили 6+ угод у перший рік, системно працювали зі своїм колом. Стартовий набір присвоює кожному контакту тир і частоту контакту — вам залишається тільки виконувати щоденний список.',
+      'sphere.t1.name': 'Тир 1 · Близьке коло', 'sphere.t1.desc': 'Родина, найближчі друзі, партнери. Ті, хто і так уже допомагає вам у всьому.', 'sphere.t1.cadence': 'Частота: кожні 30 днів · особистий дзвінок чи повідомлення',
+      'sphere.t2.name': 'Тир 2 · Активне коло', 'sphere.t2.desc': 'Колишні колеги, церква, батьки однокласників дітей, друзі по спортзалу. Ті, хто добре вас знає.', 'sphere.t2.cadence': 'Частота: кожні 60 днів · повідомлення чи email',
+      'sphere.t3.name': 'Тир 3 · Знайомі', 'sphere.t3.desc': 'Ті, з ким ви бачилися більше одного разу. Контакти у LinkedIn, сусіди, випадкові знайомства.', 'sphere.t3.cadence': 'Частота: кожні 90 днів · email або розсилка',
+      'sphere.t4.name': 'Тир 4 · Колишні клієнти', 'sphere.t4.desc': 'Усі, кому ви (або ваш партнер по команді) допомогли купити чи продати. Щорічний дотик + тригери за життєвими подіями.', 'sphere.t4.cadence': 'Частота: квартальний огляд ринку + дні народження',
+
+      'leads.subtitle': '14 активних · 4 покупці · 1 лістинг · 9 у прогріві · 1 в ескроу',
+      'leads.title': 'Воронка лідів',
+      'leads.action.filter': 'Фільтр за джерелом', 'leads.action.add': '+ Новий лід',
+
+      'brand.subtitlePage': 'Особистий бренд · Instagram + LinkedIn + персональний сайт + підпис у email',
+      'brand.title': 'Особистий бренд',
+      'brand.action.view': 'Відкрити сайт',
+      'brand.a.title': 'Бренд ріелтора A', 'brand.a.desc': 'Персональний сайт (шаблон). Instagram + LinkedIn + бізнес-сторінка Facebook. Підпис в email з біо + обрані лістинги. Візитівки замовлено.',
+      'brand.b.title': 'Бренд ріелтора B', 'brand.b.desc': 'Персональний сайт. Акцент на Instagram (демографія молодша). Обидва сайти взаємно зв\'язані як команда.',
+      'brand.team.title': 'Бренд команди', 'brand.team.desc': 'Спільна посадкова сторінка. Презентації лістингів оформлено під обох ріелторів. Сімейний формат команди — ваша відмінність.',
+      'brand.content.title': 'Контент-календар — формується автоматично щотижня',
+      'brand.content.desc': 'Щотижня система ставить у чергу 5 публікацій: огляд ринку, just-sold у вашому районі, привітання (ювілеї купівлі у колишніх клієнтів), освітній контент, та одну особисту або історію.',
+
+      'social.subtitle': 'Автопублікація · усі платформи · підсилення через коло · DM у лід · 14 публікацій у черзі',
+      'social.title': 'Соцмережі · автомат',
+      'social.action.connect': 'Підключити акаунти', 'social.action.generate': '+ Сформувати на цей тиждень',
+      'social.intro': 'Головна проблема ріелтора-початківця — невидимість. Рушій соцмереж вирішує її на автоматі: щотижня формує 12-15 публікацій для усіх ваших каналів, ставить у розклад, перетворює DM та коментарі на ліди, і дає вашому колу кнопку «поділитися» в один дотик. Ціль: щоб жодного дня ніхто з вашого оточення не забував, що ви тепер працюєте в нерухомості.',
+      'social.stat.posts': 'Публікацій за місяць', 'social.stat.posts.delta': '+18 до попереднього місяця',
+      'social.stat.reach': 'Охоплення (30 дн)', 'social.stat.reach.delta': '+62% до минулого місяця',
+      'social.stat.dms': 'DM → Ліди', 'social.stat.dms.delta': '3 кваліфіковано · 1 на показі',
+      'social.stat.shares': 'Репостів від кола', 'social.stat.shares.delta': '23 активних амплифаєра',
+      'social.calendar.title': 'Календар публікацій на 14 днів — поставлено в розклад',
+      'social.templates.title': 'Шаблони публікацій — автозаповнення з ваших даних',
+      'social.repurpose.title': 'Рушій переупаковки — 1 лістинг → 9 публікацій',
+
+      'groups.subtitle': 'Bucks County PA · фокус на російсько- та україномовну спільноту · 47 груп знайдено · 18 вступив · 9 публікацій готово до затвердження',
+      'groups.title': 'Групи Facebook · автомат',
+      'groups.action.suggest': 'Запропонувати нові групи', 'groups.action.approve': 'Затвердити всі (9)',
+      'groups.howWorks.label': 'ЯК ЦЕ ПРАЦЮЄ · ВАЖЛИВО',
+      'groups.howWorks.body': 'Meta заблокувала автоматичну публікацію у групи Facebook (з 2024 року). Тому рушій робить три речі на автоматі: <strong>(1)</strong> веде підібраний список релевантних груп з посиланнями для вступу в один дотик, <strong>(2)</strong> формує готові публікації англійською, російською та українською, підібрані під правила і аудиторію кожної групи, <strong>(3)</strong> ставить публікації у чергу на затвердження — один дотик копіює пост і відкриває групу в новій вкладці, ви вставляєте і публікуєте. Тертя мінімальне, ризик бану — нульовий.',
+      'groups.stat.identified': 'Груп знайдено', 'groups.stat.identified.delta': '18 нерухомість · 14 локальні · 15 спільнота',
+      'groups.stat.joined': 'Вступив / Очікує', 'groups.stat.joined.delta': '11 очікують схвалення адміна',
+      'groups.stat.ready': 'Постів готово', 'groups.stat.ready.delta': '3 EN · 4 RU · 2 UA',
+      'groups.stat.reach': 'Охоплення (30 дн)', 'groups.stat.reach.delta': '2 ліди прийшли з груп',
+      'groups.queue.title': 'Черга на затвердження — 9 публікацій готово',
+      'groups.queue.batch': 'Поставити у розклад',
+      'groups.queue.desc': 'Кожна картка — це одна публікація для однієї групи. Натисніть «Скопіювати і відкрити групу» — текст копіюється у буфер, група відкривається в новій вкладці, ви вставляєте і публікуєте. У середньому 12 секунд на групу.',
+      'groups.catalog.title': 'Каталог груп · знайдено 47',
+
+      'collateral.subtitle': 'Шаблони і матеріали · готові до використання', 'collateral.title': 'Матеріали та шаблони',
+      'ads.subtitle': 'Facebook + Instagram + Google + Zillow Premier Agent', 'ads.title': 'Платна реклама',
+      'ads.action.new': '+ Нова кампанія',
+      'ads.stat.spend': 'Бюджет на місяць', 'ads.stat.spend.delta': 'Правильна стартова цифра для нового ріелтора',
+      'ads.stat.leads': 'Лідів за місяць', 'ads.stat.leads.delta': 'Ціна ліда $33 · у середньому по індустрії $50',
+      'ads.stat.qualified': 'Кваліфікованих', 'ads.stat.qualified.delta': '33% якості',
+      'ads.stat.cpa': 'CPA (кваліфікований)', 'ads.stat.cpa.delta': 'Сильний показник для нового ріелтора',
+      'ads.panel.title': 'Активні кампанії',
+      'oh.subtitle': 'Найкраще джерело лідів для ріелтора-початківця · 2 покази за вихідні', 'oh.title': 'Дні відкритих дверей', 'oh.weekend': 'Ці вихідні',
+      'appts.subtitle': '5 заплановано на 14 днів · 2 покупця · 3 лістинги · навчання', 'appts.title': 'Зустрічі', 'appts.cs.title': 'Календар зустрічей', 'appts.cs.desc': 'Чек-листи підготовки для кожної зустрічі + автопідтвердження + follow-up після.',
+      'market.subtitle': 'Дані ринку по zip-коду · для розмов з клієнтами і презентацій лістингів', 'market.title': 'Дані ринку', 'market.cs.title': 'Ринкова аналітика', 'market.cs.desc': 'Дані MLS у реальному часі — медіанна ціна, дні на ринку, абсорбція по кожному ZIP.',
+      'scripts.subtitle': 'Бібліотека скриптів · знайомство з колом · follow-up після показів · FSBO · прострочені · стук у двері', 'scripts.title': 'Скрипти та шаблони', 'scripts.cs.title': 'Бібліотека скриптів', 'scripts.cs.desc': 'Перевірені скрипти з найкращих програм навчання, адаптовані під ваш ринок.',
+      'ce.subtitle': 'Облік CE в NJ + PA · найближчі заняття · підготовка до брокера', 'ce.title': 'Ліцензія та навчання', 'ce.cs.title': 'Кар\'єрний трек', 'ce.cs.desc': 'Облік годин CE для подовження ліцензії + тренінги за етапами кар\'єри + підготовка до іспиту на брокера.',
+      'team.subtitle': 'Команда з двох ріелторів · правила розподілу · спільні лістинги · маршрутизація лідів', 'team.title': 'Розподіл та комісія',
+      'team.intro': 'Сімейні команди закривають перший рік у 2 рази ефективніше одинаків — бо команда може бути у двох місцях одночасно (показ + відкритий дім), і бо рекомендації одному зараховуються обом. Стартовий набір веде маршрутизацію лідів і облік комісії, щоб жоден з ріелторів не відчував, що другий забирає кращі ліди.',
+      'team.routing.title': 'Правила маршрутизації лідів', 'team.split.title': 'Комісія цього місяця',
+      'reports.subtitle': 'За активністю · прогноз комісії · атрибуція за джерелами', 'reports.title': 'Звіти', 'reports.cs.title': 'Звіти для ріелтора-початківця', 'reports.cs.desc': 'Цифри, які мають значення, поки ви будуєте бізнес. Без марнославних метрик.'
+    }
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang === 'uk' ? 'uk' : lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      const val = I18N[lang] && I18N[lang][key];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    try { localStorage.setItem('rlk.lang', lang); } catch (e) {}
+  }
+
   function navigate(viewId) {
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     const t = document.getElementById('view-' + viewId);
@@ -1040,11 +1395,17 @@
     document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.view === viewId));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
   document.querySelectorAll('.nav-item').forEach(n => n.addEventListener('click', () => navigate(n.dataset.view)));
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
   document.querySelectorAll('.prospect-checkbox').forEach(c => c.addEventListener('click', () => {
     c.classList.toggle('done');
     c.textContent = c.classList.contains('done') ? '✓' : '○';
   }));
+
+  let savedLang = 'en';
+  try { savedLang = localStorage.getItem('rlk.lang') || 'en'; } catch (e) {}
+  if (['en','ru','uk'].includes(savedLang)) setLang(savedLang);
 </script>
 
 </body>
